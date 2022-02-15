@@ -2,7 +2,7 @@
     <div>
         <p>{{text}}</p>
         <ul>
-            <li v-for="toDo in toDoList" :key="toDo.sentence" v-bind:style="[toDo.done === true ? {color: 'red'} : {color: 'black'}]">
+            <li v-for="toDo in toDoList" :key="toDo.sentence" v-bind:class="[toDo.done === true ? activeClass : 'done', errorClass]">
                 {{ toDo.sentence }}
                 <button v-on:click="doneFunction(toDo)">Done</button>
                 <button v-on:click="deleteFunction(toDo)">Borrar</button>
@@ -30,7 +30,7 @@ export default {
             done: false,
             sentence: "Hacer los deberes"
           }
-          ]
+          ],
       }
   },
   methods: {
@@ -55,5 +55,13 @@ export default {
 <style scoped>
 ul {
     list-style: none;
+}
+.done {
+    text-decoration: line-through;
+    color: green;
+    font-style: italic;
+}
+.notDone{
+    color: 'black'
 }
 </style>

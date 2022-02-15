@@ -1,10 +1,24 @@
 <template>
-    <h1>Componente</h1>
+    <div>
+        <h1>Componente</h1>
+        <h2>{{subtitle}}</h2>
+        <button v-on:click="consoleLog">Click</button>
+    </div>
 </template>
 
 <script>
 export default {
-  name: 'BodyComponent'
+  name: 'BodyComponent',
+  data(){
+      return {
+          subtitle: "Subtitulo de mi componente"
+      }
+  },
+  methods: {
+      consoleLog: function(){
+          console.log("Has clickado el botón")
+      }
+  }
 }
 </script>
 
